@@ -15,7 +15,12 @@ public:
 	string activity;
 	int hour;
 	string email;
+	string hobby;
+	string academic_interest;
+	string recreation;
 
+
+public:
 	User() //Constructor - intialized values in private
 	{
 		firstName = "Butch";
@@ -33,6 +38,21 @@ public:
 	{
 		return lastName;
 	}
+	
+	string gethobby() //Sets last name and returns to user
+	{
+		return hobby;
+	}
+
+	string getacademic_interest() //Sets last name and returns to user
+	{
+		return academic_interest;
+	}
+
+	string getrecreation() //Sets last name and returns to user
+	{
+		return recreation;
+	}
 
 	void setFirstName(string first) //sets the first name
 	{
@@ -43,5 +63,21 @@ public:
 	{
 		lastName = last;
 	}
+
+	void sethobby(string user_hobby)
+	{
+		hobby = user_hobby;
+	}
+
+	void set_academic_interest(string user_academic_interest)
+	{
+		academic_interest = user_academic_interest;
+	}
+
+	void set_recreation(string user_recreation)
+	{
+		recreation = user_recreation;
+	}
+
 };
 
