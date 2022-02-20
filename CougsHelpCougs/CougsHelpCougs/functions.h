@@ -1,6 +1,5 @@
-#include "Carry-Hackathon.h"
+#include "libraries.h"
 #include "User.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 // Protypes for functions.cpp listed below
 
@@ -28,8 +27,8 @@ typedef struct
 
 
 int display_menu(void);
-int menu1(New User, FILE* infile);
-int menu2(User newUser, fstream infile, fstream outfile);
+int menu1(User newUser);
+//int menu2(User newUser[], fstream infile, fstream outfile);
 
 void openFile(User newUser[]);
 

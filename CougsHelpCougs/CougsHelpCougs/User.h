@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Carry-Hackathon.h"
+#include "libraries.h"
 
 //User class includes listed items below
 
@@ -9,14 +9,12 @@ class User
 private:
 	string firstName;
 	string lastName;
-
-	string email;
-
 	
 public:
 	string username;
-	string activity[30];
+	string activity;
 	int hour;
+	string email;
 
 	User() //Constructor - intialized values in private
 	{

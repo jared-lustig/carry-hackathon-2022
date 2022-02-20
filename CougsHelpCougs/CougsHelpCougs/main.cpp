@@ -1,4 +1,4 @@
-#include "Carry-Hackathon.h"
+#include "libraries.h"
 #include "User.h"
 #include "functions.h"
 /* This will be our main function */
@@ -22,6 +22,8 @@ int main()
 	}
 
 	openFile(cougUsers); //Will print same info to ResponseLog
+
+	menu1(cougUsers[0]);
 
 	/*
 
