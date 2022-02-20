@@ -11,6 +11,11 @@ private:
 	string lastName;
 	string username;
 	string email;
+	string hobby;
+	string academic_interest;
+	string recreation;
+
+
 public:
 	User() //Constructor - intialized values in private
 	{
@@ -39,5 +44,38 @@ public:
 	{
 		lastName = last;
 	}
+
+	void print_hobby(string hobby)
+	{
+		cout<< hobby;
+	}
+
+	void print_academic_interest(string academic_interest)
+	{
+		cout << academic_interest;
+	}
+
+	void print_recreation(string recreation)
+	{
+		cout << recreation;
+	}
+
+	void compare_users_hobby(User cougUsers[], string variable)
+	{
+		int n = 0;
+		int len = sizeof(cougUsers);
+
+		while(n < len -1)
+		{
+			if (cougUsers[n].variable == cougUsers[n+1].variable)
+			{
+				cout << cougUsers[n] << "and" << cougUsers[n+1] << "share an interest in" << cougUsers[n].variable;
+			}
+		}
+		
+
+
+	}
+
 };
 
