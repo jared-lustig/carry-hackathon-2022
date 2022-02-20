@@ -1,19 +1,20 @@
 #include "functions.h"
 
-////This function will allow response log to save responses from multiple users
-//void openFile(User newUser[])
-//{
-//	fstream file;
-//
-//	file.open("ResponseLog.txt"); //Opens text file to write 
-//
-//	for (int i = 0; file.is_open() && newUser[i].getFirstName() != "Butch"; i++)
-//	{
-//		file << newUser[i].getFirstName() << " " << newUser[i].getLastName() << endl << endl;
-//	}
-//
-//	file.close(); //close file 
-//}
+
+//This function will allow response log to save responses from multiple users
+void openFile(User newUser[])
+{
+	fstream file;
+
+	file.open("ResponseLog.txt"); //Opens text file to write 
+
+	for (int i = 0; file.is_open() && newUser[i].getFirstName() != "Butch"; i++)
+	{
+		file << newUser[i].getFirstName() << " " << newUser[i].getLastName() << endl << endl;
+	}
+
+	file.close(); //close file 
+}
 
 int display_menu()
 {
@@ -22,14 +23,14 @@ int display_menu()
 	int i = 0;
 
 	do {
-		cout << "**********************COUGS MEET COUGS****************************\n";
+		cout << "**********************COUGS MEET COUGS****************************" << endl;
 		cout << "THE BEST FRIEND FINDER IN PULLMAN!!!!!!\n";
 		cout << "WE ALWAYS FIND OUR WAY BACK HOME\n";
 		cout << "WHY NOT FIND FRIENDS TO MAKE YOUR COLLEGE EXPERIENCE UNFORGETTABLE AS WELL?\n";
 		cout << "*********************OPTIONS**********************************\n";
 		cout << "1) MAKE A REQUEST TO FIND NEW FRIENDS\n";
 		cout << "2) LOOK AT POSTED REQUESTS FROM FUTURE FRIENDS\n";
-		scanf("%d", &option);
+		cin >> option;
 	} while (option < 1 || option > 2);
 
 	return option;
@@ -62,7 +63,7 @@ int menu1(New User, FILE* infile, FILE* outfile)
 		cout << "4) STUDY BUDDIES\n";
 		cout << "5) CYCLING BUDDIES\n";
 		cout << "6) EXIT\n";
-		scanf("%d", &choice);
+		cin >> choice;
 	} while (choice < 1 || choice > 6);
 
 
@@ -80,7 +81,7 @@ int menu1(New User, FILE* infile, FILE* outfile)
 			printf("YOUR GYM SELECTION: UREC\n");
 			User.activity = "GYM/UREC";
 			printf("What time are you planning to workout at? (12 PM to 11 PM) \n");
-			scanf("%d", &User.hour);
+			scanf("%d", & User.hour);
 		}
 		if (temp == 2)
 		{
@@ -243,57 +244,75 @@ int menu1(New User, FILE* infile, FILE* outfile)
 
 
 
-int menu2(User newUser, FILE* infile, FILE*outfile)
+int menu2(User newUser[], fstream infile, fstream outfile)
 {
 
-	int usernumber[100] = { 0 };
-	int count = 0;
-	int i = 0;
-	int yesno = 0;
-	int listing = 0;
+	//int usernumber[100] = { 0 };
+	//int count = 0;
+	//int i = 0;
+	//int yesno = 0;
+	//int listing = 0;
 
-	while (!feof(infile))
+	//string first, last, username, activity, hour;
+
+	//while (!feof(infile))
+	//{
+	//	std::cout << i + 1, first;
+	//	std::cout << "%s\n", newUser.lastname[i];
+	//	std::cout << "%s\n", newUser.username[i];
+	//	std::cout << "%s\n", newUser.activity[i];
+	//	std::cout << "%s\n", newUser.hour[i];
+
+	//	usernumber[i] = i + 1;
+	//	i++;
+	//	count++;
+	//}
+	string first, last;
+
+	for (int i = 0; infile.eof(); i++)
 	{
-		std::cout << "%d) %s, ", i + 1, newUser.firstname[i];
-		std::cout << "%s\n", newUser.lastname[i];
-		std::cout << "%s\n", newUser.username[i];
-		std::cout << "%s\n", newUser.activity[i];
-		std::cout << "%s\n", newUser.hour[i];
+		infile >> first;
+		infile >> last;
+		infile >> newUser[i].activity[0];
+		infile >> newUser[i].hour;
 
-		usernumber[i] = i + 1;
-		i++;
-		count++;
+		newUser[i].setFirstName(first);
+		newUser[i].setLastName(last);
+		/*cout << newUser[i].getFirstName() << endl;
+		cout << newUser[i].getLastName() << endl;
+		cout << newUser[i].activity << endl;
+		cout << newUser[i].hour << endl << endl;*/
 	}
 
-	do {
-		std::cout << "Any Listings you Find Appealing?\n (y/n)";
-		scanf("%c", &yesno);
-	} while (yesno != 'y' || yesno != 'n');
+	//do {
+	//	std::cout << "Any Listings you Find Appealing?\n (y/n)";
+	//	scanf("%c", &yesno);
+	//} while (yesno != 'y' || yesno != 'n');
 
-	if (yesno == 'y')
-	{
-		std::cout << "Which Listing?";
-		scanf("%d", &listing);
+	//if (yesno == 'y')
+	//{
+	//	std::cout << "Which Listing?";
+	//	scanf("%d", &listing);
 
-		for (int j = 0; j < count; j++)
-		{
-			if (usernumber[j] == listing)
-			{
-				std::cout << "%s, %s, %s, %d", newUser.firstname[i], newUser.lastname[i], newUser.activity, newUser.hour;
+	//	for (int j = 0; j < count; j++)
+	//	{
+	//		if (usernumber[j] == listing)
+	//		{
+	//			std::cout << "%s, %s, %s, %d", newUser.firstname[i], newUser.lastname[i], newUser.activity, newUser.hour;
 
-				std::cout << "You are now matched with %s to do %s. HAVE FUN", newUser.firstname[i], newUser.activity;
+	//			std::cout << "You are now matched with %s to do %s. HAVE FUN", newUser.firstname[i], newUser.activity;
 
-				// fprintf the matching to an outfile called appointments
+	//			// fprintf the matching to an outfile called appointments
 
-				break;
-			}
-			j++;
-		}
+	//			break;
+	//		}
+	//		j++;
+	//	}
 
 
-	}
-	else
-	{
-		std::cout << "Shucks, Look Back Later for More Listings!";
-	}
+	//}
+	//else
+	//{
+	//	std::cout << "Shucks, Look Back Later for More Listings!";
+	//}
 }

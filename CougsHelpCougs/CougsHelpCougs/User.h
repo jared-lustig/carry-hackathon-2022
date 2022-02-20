@@ -9,9 +9,15 @@ class User
 private:
 	string firstName;
 	string lastName;
-	string username;
+
 	string email;
+
+	
 public:
+	string username;
+	string activity[30];
+	int hour;
+
 	User() //Constructor - intialized values in private
 	{
 		firstName = "Butch";
