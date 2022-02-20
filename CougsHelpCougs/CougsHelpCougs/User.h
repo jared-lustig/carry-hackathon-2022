@@ -34,6 +34,21 @@ public:
 	{
 		return lastName;
 	}
+	
+	string gethobby() //Sets last name and returns to user
+	{
+		return hobby;
+	}
+
+	string getacademic_interest() //Sets last name and returns to user
+	{
+		return academic_interest;
+	}
+
+	string getrecreation() //Sets last name and returns to user
+	{
+		return recreation;
+	}
 
 	void setFirstName(string first) //sets the first name
 	{
@@ -45,36 +60,19 @@ public:
 		lastName = last;
 	}
 
-	void print_hobby(string hobby)
+	void sethobby(string user_hobby)
 	{
-		cout<< hobby;
+		hobby = user_hobby;
 	}
 
-	void print_academic_interest(string academic_interest)
+	void set_academic_interest(string user_academic_interest)
 	{
-		cout << academic_interest;
+		academic_interest = user_academic_interest;
 	}
 
-	void print_recreation(string recreation)
+	void set_recreation(string user_recreation)
 	{
-		cout << recreation;
-	}
-
-	void compare_users_hobby(User cougUsers[], string variable)
-	{
-		int n = 0;
-		int len = sizeof(cougUsers);
-
-		while(n < len -1)
-		{
-			if (cougUsers[n].variable == cougUsers[n+1].variable)
-			{
-				cout << cougUsers[n] << "and" << cougUsers[n+1] << "share an interest in" << cougUsers[n].variable;
-			}
-		}
-		
-
-
+		recreation = user_recreation;
 	}
 
 };
